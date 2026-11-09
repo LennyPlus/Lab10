@@ -4,6 +4,7 @@
  */
 package com.mycompany.mavenproject1;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.application.Application;
@@ -13,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -20,6 +22,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -86,12 +89,12 @@ public class OrderController implements Initializable {
 
     @FXML
     void onPlaceOrderBtn(ActionEvent event) {
-
+        placeOrder();
     }   
     
     @FXML
     void onPlaceOrderMenuItem(ActionEvent event) {
-
+        placeOrder();
     }
     
     @FXML
@@ -127,6 +130,7 @@ public class OrderController implements Initializable {
         Order.setSpecialRequests(specialRequestTextField.getText());
     }
     
+   
     @FXML
     void onAboutMenuItem(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -155,5 +159,18 @@ public class OrderController implements Initializable {
         Order.setDrink(null);
 
         updatePriceLabel();
+    }
+    
+    public void placeOrder() {
+        Stage stage = new Stage();
+        Scene scene;
+        try {
+            scene = new Scene(OrderView.loadFXML("summary"), 240, 320);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            System.getLogger(OrderController.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+        
     }
 }

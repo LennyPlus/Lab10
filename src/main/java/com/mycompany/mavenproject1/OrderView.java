@@ -26,7 +26,7 @@ public class OrderView extends Application {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(OrderView.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
