@@ -6,6 +6,8 @@ package com.mycompany.mavenproject1;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -74,12 +76,7 @@ public class OrderController implements Initializable {
     
      @FXML
     void onClearOrderBtn(ActionEvent event) {
-        entreeListView.getSelectionModel().clearSelection();
-        Order.setEntree(null);
-        drinkToggleGroup.getSelectedToggle().setSelected(false);
-        Order.setDrink(null);
-
-        updatePriceLabel();
+        clearOrder();
     }
 
     @FXML
@@ -87,6 +84,20 @@ public class OrderController implements Initializable {
 
     }   
     
+    @FXML
+    void onPlaceOrderMenuItem(ActionEvent event) {
+
+    }
+    
+    @FXML
+    void onClearOrderMenuItem(ActionEvent event) {
+        clearOrder();
+    }
+    
+    @FXML
+    void onExitMenuItem(ActionEvent event) {
+        Platform.exit();
+    }
     
     public void updatePriceLabel() {
         double totalPrice = 0;
@@ -99,5 +110,14 @@ public class OrderController implements Initializable {
         }
         
         totalPriceLabel.setText("$" + totalPrice);
+    }
+    
+    public void clearOrder() {
+        entreeListView.getSelectionModel().clearSelection();
+        Order.setEntree(null);
+        drinkToggleGroup.getSelectedToggle().setSelected(false);
+        Order.setDrink(null);
+
+        updatePriceLabel();
     }
 }
