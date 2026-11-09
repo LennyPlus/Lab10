@@ -31,14 +31,14 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Entree" />
-                        <MenuItem mnemonicParsing="false" text="Drink" />
-                        <MenuItem mnemonicParsing="false" text="Special Request" />
+                    <MenuItem mnemonicParsing="false" onAction="#onClearEntree" text="Clear Entree" />
+                        <MenuItem mnemonicParsing="false" onAction="#onClearDrink" text="Clear Drink" />
+                        <MenuItem mnemonicParsing="false" onAction="#onClearSpecialRequest" text="Clear Special Request" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" onAction="#onAboutMenuItem" text="About" />
                   </items>
                 </Menu>
               </menus>
@@ -69,7 +69,7 @@
             <VBox style="-fx-background-color: ABABAB; -fx-border-radius: 50;">
                <children>
                   <Label text="Special Requests" />
-                  <TextField promptText="e.g Hold the onions" />
+                  <TextField fx:id="specialRequestTextField" onAction="#onSpecialRequestTextField" promptText="e.g Hold the onions" />
                </children>
                <VBox.margin>
                   <Insets />

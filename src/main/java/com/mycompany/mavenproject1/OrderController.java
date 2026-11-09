@@ -13,10 +13,12 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 
 /**
@@ -40,6 +42,9 @@ public class OrderController implements Initializable {
     
     @FXML
     private Button clearOrderBtn;
+    
+    @FXML
+    private TextField specialRequestTextField;
      
     /**
      * Initializes the controller class.
@@ -97,6 +102,37 @@ public class OrderController implements Initializable {
     @FXML
     void onExitMenuItem(ActionEvent event) {
         Platform.exit();
+    }
+    
+    @FXML
+    void onClearEntree(ActionEvent event) {
+        entreeListView.getSelectionModel().clearSelection();
+        Order.setEntree(null);
+    }
+    
+    @FXML
+    void onClearDrink(ActionEvent event) {
+        drinkToggleGroup.getSelectedToggle().setSelected(false);
+        Order.setDrink(null);
+    }
+
+     @FXML
+    void onClearSpecialRequest(ActionEvent event) {
+        specialRequestTextField.setText("");
+        Order.setSpecialRequests("");
+    }
+    
+    @FXML
+    void onSpecialRequestTextField(ActionEvent event) {
+        Order.setSpecialRequests(specialRequestTextField.getText());
+    }
+    
+    @FXML
+    void onAboutMenuItem(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setHeaderText("Order Terminal");
+        alert.setContentText("Made by Anas Issa");
+        alert.showAndWait();
     }
     
     public void updatePriceLabel() {
