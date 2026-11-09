@@ -54,7 +54,7 @@
                   <VBox minHeight="-Infinity" minWidth="-Infinity" prefWidth="80.0">
                      <children>
                         <Label text="Drink Selection" />
-                        <RadioButton mnemonicParsing="false" selected="true" text="Coffee">
+                        <RadioButton mnemonicParsing="false" text="Coffee">
                            <toggleGroup>
                               <ToggleGroup fx:id="drinkToggleGroup" />
                            </toggleGroup></RadioButton>
@@ -92,8 +92,8 @@
                   </VBox>
                   <HBox>
                      <children>
-                        <Button mnemonicParsing="false" style="-: 15;" text="Place Order" />
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Clear Order" />
+                        <Button fx:id="placeOrderBtn" mnemonicParsing="false" onAction="#onPlaceOrderBtn" style="-: 15;" text="Place Order" />
+                        <Button fx:id="clearOrderBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClearOrderBtn" text="Clear Order" />
                      </children>
                   </HBox>
                </children>

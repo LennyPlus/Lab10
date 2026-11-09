@@ -8,8 +8,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
@@ -31,6 +33,12 @@ public class OrderController implements Initializable {
     @FXML
     private Label totalPriceLabel;
     
+    @FXML
+    private Button placeOrderBtn;
+    
+    @FXML
+    private Button clearOrderBtn;
+     
     /**
      * Initializes the controller class.
      */
@@ -54,11 +62,31 @@ public class OrderController implements Initializable {
         
         // Detect when the user has chosen a new drink
         drinkToggleGroup.selectedToggleProperty().addListener((o, ov, nv) -> {
-            Order.setDrink(((RadioButton) nv).getText());
+            if (nv == null) {
+                Order.setDrink(null);
+            } else {
+                Order.setDrink(((RadioButton) nv).getText());
+            }
             System.out.println(Order.getDrink());
             updatePriceLabel();
         });
     }    
+    
+     @FXML
+    void onClearOrderBtn(ActionEvent event) {
+        entreeListView.getSelectionModel().clearSelection();
+        Order.setEntree(null);
+        drinkToggleGroup.getSelectedToggle().setSelected(false);
+        Order.setDrink(null);
+
+        updatePriceLabel();
+    }
+
+    @FXML
+    void onPlaceOrderBtn(ActionEvent event) {
+
+    }   
+    
     
     public void updatePriceLabel() {
         double totalPrice = 0;
