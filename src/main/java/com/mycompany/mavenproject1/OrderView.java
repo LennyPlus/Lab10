@@ -17,7 +17,7 @@ public class OrderView extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("order"), 400, 340);
+        scene = new Scene(loadFXML("order"), 400, 540);
         stage.setScene(scene);
         stage.show();
     }
