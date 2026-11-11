@@ -14,7 +14,7 @@ import java.io.IOException;
 public class OrderView extends Application {
 
     private static Scene scene;
-
+    
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("order"), 400, 540);

@@ -165,7 +165,8 @@ public class OrderController implements Initializable {
         Stage stage = new Stage();
         Scene scene;
         try {
-            scene = new Scene(OrderView.loadFXML("summary"), 240, 320);
+            // Hardcode the scene dimensions for the summary
+            scene = new Scene(OrderView.loadFXML("summary"), 225, 220);
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {

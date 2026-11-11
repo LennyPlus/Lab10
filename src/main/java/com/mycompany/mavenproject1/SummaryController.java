@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
@@ -22,6 +23,22 @@ public class SummaryController implements Initializable {
     
     @FXML
     private Button closeBtn;
+    
+    @FXML
+    private Label totalLabel;
+    
+    @FXML
+    private Label drinkLabel;
+
+    @FXML
+    private Label drinkPrice;
+
+    @FXML
+    private Label entreeLabel;
+
+    @FXML
+    private Label entreePrice;
+
     
     /**
      * Initializes the controller class.

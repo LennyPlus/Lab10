@@ -3,51 +3,61 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.SummaryController">
+<VBox alignment="CENTER" prefHeight="220.0" prefWidth="255.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.SummaryController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <children>
-      <Label text="Your Order Summary" />
-      <VBox prefHeight="200.0" prefWidth="100.0">
+      <Label style="-fx-font-size: 16; -fx-font-weight: bold;" text="Your Order Summary" />
+      <StackPane prefHeight="75.0" prefWidth="215.0">
          <children>
-            <HBox minWidth="-Infinity" prefWidth="200.0" spacing="5.0">
+            <GridPane prefHeight="346.0" prefWidth="215.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
                <children>
-                  <Label text="Entree:" />
-                  <Label layoutX="10.0" layoutY="10.0" text="Label" />
-                  <Label layoutX="47.0" layoutY="10.0" text="\$0.00" />
+                  <Label style="-fx-font-size: 10;" text="Entree:" />
+                  <Label style="-fx-font-size: 10;" text="Drink:" GridPane.rowIndex="1" />
+                  <Label style="-fx-font-size: 10;" text="Water:" GridPane.rowIndex="2" />
+                  <Label fx:id="entreeLabel" style="-fx-font-size: 10;" text="Chicken Salad" GridPane.columnIndex="1" />
+                  <Label fx:id="drinkLabel" style="-fx-font-size: 10;" text="Coffee" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label style="-fx-font-size: 10;" text="no" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="entreePrice" style="-fx-font-size: 10;" text="\$6.50" GridPane.columnIndex="2" />
+                  <Label fx:id="drinkPrice" style="-fx-font-size: 10;" text="\$1.50" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="10.0">
-               <children>
-                  <Label text="Drink:" />
-                  <Label layoutX="10.0" layoutY="10.0" text="Label" />
-                  <Label layoutX="47.0" layoutY="10.0" text="\$0.00" />
-               </children>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="27.0">
-               <children>
-                  <Label text="Water:" />
-                  <Label layoutX="10.0" layoutY="10.0" text="No" />
-               </children>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="44.0">
-               <children>
-                  <Label text="Special Requests:" />
-                  <Label layoutX="10.0" layoutY="10.0" />
-               </children>
-            </HBox>
-            <HBox layoutX="10.0" layoutY="61.0">
-               <children>
-                  <Label text="Total:" />
-                  <Label layoutX="10.0" layoutY="10.0" />
-               </children>
-            </HBox>
+            </GridPane>
          </children>
-      </VBox>
+      </StackPane>
+      <HBox>
+         <children>
+            <Label style="-fx-font-size: 10;" text="Special Requests:" />
+            <Label layoutX="10.0" layoutY="10.0" />
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0" />
+      <HBox>
+         <children>
+            <Label style="-fx-font-size: 18; -fx-font-weight: bold;" text="Total:" HBox.hgrow="ALWAYS" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label fx:id="totalLabel" layoutX="10.0" layoutY="10.0" style="-fx-font-size: 18; -fx-font-weight: bold;" text="\$0.00" HBox.hgrow="ALWAYS" />
+         </children>
+      </HBox>
       <Button fx:id="closeBtn" mnemonicParsing="false" onAction="#onCloseSummary" text="Close" />
    </children>
 </VBox>
