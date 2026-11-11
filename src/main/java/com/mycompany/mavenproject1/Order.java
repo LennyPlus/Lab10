@@ -66,10 +66,13 @@ public class Order {
     public static String getDrink() {
         return drink;
     }
-    
-    
-    
-    
-    
+
+    public static boolean isWantWater() {
+        return wantWater;
+    }
+
+    public static String getSpecialRequests() {
+        return specialRequests;
+    }
     
 }

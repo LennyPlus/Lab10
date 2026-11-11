@@ -39,6 +39,12 @@ public class SummaryController implements Initializable {
     @FXML
     private Label entreePrice;
 
+    @FXML
+    private Label waterLabel;
+    
+    @FXML
+    private Label specialRequestsLabel;
+    
     
     /**
      * Initializes the controller class.
@@ -53,6 +59,14 @@ public class SummaryController implements Initializable {
         totalLabel.setText(String.format("$%.2f", Order.getTotalPrice()));
         entreePrice.setText(String.format("$%.2f", Order.getEntreePrice()));
         drinkPrice.setText(String.format("$%.2f", Order.getDrinkPrice()));
+        
+        if (Order.isWantWater()) {
+           waterLabel.setText("Yes");
+        } else {
+            waterLabel.setText("No");
+        }
+        
+        specialRequestsLabel.setText(Order.getSpecialRequests());
     }    
     
      @FXML

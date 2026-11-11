@@ -37,7 +37,7 @@
                   <Label style="-fx-font-size: 10;" text="Water:" GridPane.rowIndex="2" />
                   <Label fx:id="entreeLabel" style="-fx-font-size: 10;" text="Chicken Salad" GridPane.columnIndex="1" />
                   <Label fx:id="drinkLabel" style="-fx-font-size: 10;" text="Coffee" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <Label style="-fx-font-size: 10;" text="no" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="waterLabel" style="-fx-font-size: 10;" text="no" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <Label fx:id="entreePrice" style="-fx-font-size: 10;" text="\$6.50" GridPane.columnIndex="2" />
                   <Label fx:id="drinkPrice" style="-fx-font-size: 10;" text="\$1.50" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
@@ -47,7 +47,7 @@
       <HBox>
          <children>
             <Label style="-fx-font-size: 10;" text="Special Requests:" />
-            <Label layoutX="10.0" layoutY="10.0" />
+            <Label fx:id="specialRequestsLabel" layoutX="10.0" layoutY="10.0" />
          </children>
       </HBox>
       <Separator prefWidth="200.0" />

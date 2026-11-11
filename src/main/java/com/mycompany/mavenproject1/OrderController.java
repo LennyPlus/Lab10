@@ -162,6 +162,14 @@ public class OrderController implements Initializable {
     }
     
     public void placeOrder() {
+        if (Order.getDrink() == null || Order.getEntree() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("Entree and drink must be chosen before placing an order");
+            alert.showAndWait();
+            return;
+        }
+        
+        
         Stage stage = new Stage();
         Scene scene;
         try {
