@@ -12,115 +12,110 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 
-<Pane xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.OrderController">
+<VBox xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.mavenproject1.OrderController">
    <children>
-      <VBox prefWidth="100.0">
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onPlaceOrderMenuItem" text="Place Order" />
+                  <MenuItem mnemonicParsing="false" onAction="#onClearOrderMenuItem" text="Clear Order" />
+                  <MenuItem mnemonicParsing="false" onAction="#onExitMenuItem" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onClearEntree" text="Clear Entree" />
+                  <MenuItem mnemonicParsing="false" onAction="#onClearDrink" text="Clear Drink" />
+                  <MenuItem mnemonicParsing="false" onAction="#onClearSpecialRequest" text="Clear Special Request" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#onAboutMenuItem" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0">
          <children>
-            <MenuBar>
-              <menus>
-                <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#onPlaceOrderMenuItem" text="Place Order" />
-                        <MenuItem mnemonicParsing="false" onAction="#onClearOrderMenuItem" text="Clear Order" />
-                        <MenuItem mnemonicParsing="false" onAction="#onExitMenuItem" text="Exit" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#onClearEntree" text="Clear Entree" />
-                        <MenuItem mnemonicParsing="false" onAction="#onClearDrink" text="Clear Drink" />
-                        <MenuItem mnemonicParsing="false" onAction="#onClearSpecialRequest" text="Clear Special Request" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Help">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#onAboutMenuItem" text="About" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <VBox alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0">
+            <HBox alignment="CENTER" prefHeight="130.0" prefWidth="360.0" spacing="10.0">
                <children>
-                  <HBox alignment="CENTER" prefHeight="130.0" prefWidth="360.0" spacing="10.0">
+                  <VBox prefHeight="145.0" prefWidth="374.0" style="-fx-border-color: DARKGREY;">
                      <children>
-                        <VBox prefHeight="145.0" prefWidth="374.0" style="-fx-border-color: DARKGREY;">
+                        <Label minHeight="-Infinity" minWidth="-Infinity" style="-fx-font-weight: bold;" text="Entree Selection" />
+                        <ListView fx:id="entreeListView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="159.0" />
+                     </children>
+                  </VBox>
+                  <Region prefHeight="145.0" prefWidth="29.0" HBox.hgrow="ALWAYS" />
+                  <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="166.0" style="-fx-border-color: DARKGREY;">
+                     <children>
+                        <Label style="-fx-font-weight: bold;" text="Drink Selection" VBox.vgrow="ALWAYS" />
+                        <VBox prefWidth="162.0" spacing="18.0" style="-fx-background-color: WHITE;" VBox.vgrow="ALWAYS">
                            <children>
-                              <Label minHeight="-Infinity" minWidth="-Infinity" style="-fx-font-weight: bold;" text="Entree Selection" />
-                              <ListView fx:id="entreeListView" minHeight="-Infinity" minWidth="-Infinity" prefHeight="126.0" prefWidth="159.0" />
-                           </children>
-                        </VBox>
-                        <Region prefHeight="145.0" prefWidth="29.0" HBox.hgrow="ALWAYS" />
-                        <VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="145.0" prefWidth="166.0" style="-fx-border-color: DARKGREY;">
-                           <children>
-                              <Label style="-fx-font-weight: bold;" text="Drink Selection" VBox.vgrow="ALWAYS" />
-                              <VBox prefWidth="162.0" spacing="18.0" style="-fx-background-color: WHITE;" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <RadioButton mnemonicParsing="false" text="Coffee" VBox.vgrow="ALWAYS">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="drinkToggleGroup" />
-                                       </toggleGroup>
-                                    </RadioButton>
-                                    <RadioButton mnemonicParsing="false" text="Tea" toggleGroup="$drinkToggleGroup" />
-                                    <RadioButton mnemonicParsing="false" text="Soda" toggleGroup="$drinkToggleGroup" />
-                                    <RadioButton mnemonicParsing="false" text="Juice" toggleGroup="$drinkToggleGroup" />
-                                 </children>
-                              </VBox>
+                              <RadioButton mnemonicParsing="false" text="Coffee" VBox.vgrow="ALWAYS">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="drinkToggleGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Tea" toggleGroup="$drinkToggleGroup" />
+                              <RadioButton mnemonicParsing="false" text="Soda" toggleGroup="$drinkToggleGroup" />
+                              <RadioButton mnemonicParsing="false" text="Juice" toggleGroup="$drinkToggleGroup" />
                            </children>
                         </VBox>
                      </children>
-                  </HBox>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <CheckBox mnemonicParsing="false" onAction="#onWaterCheckBox" text="Request Free Water" />
+               </children>
+            </HBox>
+            <VBox style="-fx-border-color: LIGHTGRAY; -fx-border-radius: 5;">
+               <children>
+                  <Label style="-fx-font-weight: BOLD;" text="Special Requests" />
+                  <TextField fx:id="specialRequestTextField" onAction="#onSpecialRequestTextField" promptText="e.g Hold the onions" />
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <HBox spacing="10.0" style="-fx-border-color: LIGHTGRAY; -fx-border-radius: 5;">
+               <children>
+                  <VBox>
+                     <children>
+                        <Label style="-fx-font-size: 15; -fx-font-weight: BOLD;" text="Current Order:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="totalPriceLabel" style="-fx-font-weight: BOLD;" text="Total: $0.00" />
+                     </children>
+                  </VBox>
                   <HBox>
                      <children>
-                        <CheckBox mnemonicParsing="false" onAction="#onWaterCheckBox" text="Request Free Water" />
+                        <Button fx:id="placeOrderBtn" mnemonicParsing="false" onAction="#onPlaceOrderBtn" style="-: 15;" text="Place Order" />
+                        <Button fx:id="clearOrderBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClearOrderBtn" text="Clear Order" />
                      </children>
-                  </HBox>
-                  <VBox style="-fx-border-color: LIGHTGRAY; -fx-border-radius: 5;">
-                     <children>
-                        <Label style="-fx-font-weight: BOLD;" text="Special Requests" />
-                        <TextField fx:id="specialRequestTextField" onAction="#onSpecialRequestTextField" promptText="e.g Hold the onions" />
-                     </children>
-                     <VBox.margin>
-                        <Insets />
-                     </VBox.margin>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
-                  </VBox>
-                  <HBox spacing="10.0" style="-fx-border-color: LIGHTGRAY; -fx-border-radius: 5;">
-                     <children>
-                        <VBox>
-                           <children>
-                              <Label style="-fx-font-size: 15; -fx-font-weight: BOLD;" text="Current Order:">
-                                 <font>
-                                    <Font name="System Bold" size="12.0" />
-                                 </font>
-                              </Label>
-                              <Label fx:id="totalPriceLabel" style="-fx-font-weight: BOLD;" text="Total: $0.00" />
-                           </children>
-                        </VBox>
-                        <HBox>
-                           <children>
-                              <Button fx:id="placeOrderBtn" mnemonicParsing="false" onAction="#onPlaceOrderBtn" style="-: 15;" text="Place Order" />
-                              <Button fx:id="clearOrderBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClearOrderBtn" text="Clear Order" />
-                           </children>
-                        </HBox>
-                     </children>
-                     <padding>
-                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                     </padding>
                   </HBox>
                </children>
                <padding>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
-            </VBox>
+            </HBox>
          </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
       </VBox>
    </children>
-</Pane>
+</VBox>
