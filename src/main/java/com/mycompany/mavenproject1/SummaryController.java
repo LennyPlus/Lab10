@@ -6,7 +6,6 @@ package com.mycompany.mavenproject1;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -66,7 +65,11 @@ public class SummaryController implements Initializable {
             waterLabel.setText("No");
         }
         
-        specialRequestsLabel.setText(Order.getSpecialRequests());
+        if (Order.getSpecialRequests() == "") {
+            specialRequestsLabel.setText("Left empty");
+        } else {
+            specialRequestsLabel.setText(Order.getSpecialRequests());
+        }
     }    
     
      @FXML

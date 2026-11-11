@@ -7,7 +7,6 @@ package com.mycompany.mavenproject1;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -17,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
@@ -57,7 +57,7 @@ public class OrderController implements Initializable {
         // Set the entrees in the list view
         ObservableList<String> entrees = FXCollections.observableArrayList(
             "Chicken Salad",
-            "Turkey Sandwhich",
+            "Turkey Sandwich",
             "Vegetable Wrap",
             "Grilled Cheese"
         );
@@ -139,6 +139,12 @@ public class OrderController implements Initializable {
         alert.showAndWait();
     }
     
+    @FXML
+    void onWaterCheckBox(ActionEvent event) {
+        CheckBox check = (CheckBox) event.getSource();
+        Order.setWantWater(check.isSelected());
+    }
+    
     public void updatePriceLabel() {
         double totalPrice = 0;
         if (Order.getEntree() != null) {
@@ -149,13 +155,15 @@ public class OrderController implements Initializable {
             totalPrice += Order.items.get(Order.getDrink());
         }
         
-        totalPriceLabel.setText("$" + totalPrice);
+        totalPriceLabel.setText(String.format("$%.2f", totalPrice));
     }
     
     public void clearOrder() {
         entreeListView.getSelectionModel().clearSelection();
         Order.setEntree(null);
-        drinkToggleGroup.getSelectedToggle().setSelected(false);
+        if (drinkToggleGroup.getSelectedToggle() != null) {
+            drinkToggleGroup.getSelectedToggle().setSelected(false);
+        }
         Order.setDrink(null);
 
         updatePriceLabel();
@@ -174,7 +182,7 @@ public class OrderController implements Initializable {
         Scene scene;
         try {
             // Hardcode the scene dimensions for the summary
-            scene = new Scene(OrderView.loadFXML("summary"), 225, 220);
+            scene = new Scene(OrderView.loadFXML("summary"), 330, 260);
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {

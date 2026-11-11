@@ -13,15 +13,15 @@ import static java.util.Map.entry;
  * @author 2551365
  */
 public class Order {
-    private static String entree;
-    private static String drink;
-    private static String specialRequests;
+    private static String entree = null;
+    private static String drink = null;
+    private static String specialRequests = "";
     private static boolean wantWater;
     
     public static Map<String, Double> items = Map.ofEntries(
             // Entree
             entry("Chicken Salad", Double.valueOf(6.50)),
-            entry("Turkey Sandwhich", Double.valueOf(6.75)),
+            entry("Turkey Sandwich", Double.valueOf(6.75)),
             entry("Vegetable Wrap", Double.valueOf(6.00)),
             entry("Grilled Cheese", Double.valueOf(5.00)),
             // Drinks
