@@ -45,7 +45,14 @@ public class SummaryController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Get the name of items
+        entreeLabel.setText(Order.getEntree());
+        drinkLabel.setText(Order.getDrink());
+        
+        // Get the price of the items
+        totalLabel.setText(String.format("$%.2f", Order.getTotalPrice()));
+        entreePrice.setText(String.format("$%.2f", Order.getEntreePrice()));
+        drinkPrice.setText(String.format("$%.2f", Order.getDrinkPrice()));
     }    
     
      @FXML

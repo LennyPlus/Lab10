@@ -34,6 +34,14 @@ public class Order {
     public static double getTotalPrice() {
         return items.get(entree) + items.get(drink);
     }
+    
+    public static double getEntreePrice() {
+        return items.get(entree);
+    }
+
+    public static double getDrinkPrice() {
+        return items.get(drink);
+    }
 
     public static void setEntree(String entree) {
         Order.entree = entree;
