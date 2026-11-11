@@ -41,12 +41,6 @@ public class OrderController implements Initializable {
     private Label totalPriceLabel;
     
     @FXML
-    private Button placeOrderBtn;
-    
-    @FXML
-    private Button clearOrderBtn;
-    
-    @FXML
     private TextField specialRequestTextField;
      
     /**
