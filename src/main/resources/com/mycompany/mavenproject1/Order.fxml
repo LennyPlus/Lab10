@@ -101,7 +101,8 @@
                         <Label fx:id="totalPriceLabel" style="-fx-font-weight: BOLD;" text="Total: $0.00" />
                      </children>
                   </VBox>
-                  <HBox>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <HBox spacing="5.0">
                      <children>
                         <Button fx:id="placeOrderBtn" mnemonicParsing="false" onAction="#onPlaceOrderBtn" style="-: 15;" text="Place Order" />
                         <Button fx:id="clearOrderBtn" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#onClearOrderBtn" text="Clear Order" />
